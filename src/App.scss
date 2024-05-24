@@ -1,6 +1,10 @@
 .nav {
     background-color: #4f372f;
     a {
-        color: #fff
+        color: #fff;
+        background-color: #4f372f;
+        &:hover {
+            color: #ffffff;
+        }
     }
 }

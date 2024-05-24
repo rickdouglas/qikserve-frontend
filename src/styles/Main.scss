@@ -1,0 +1,40 @@
+.btn{
+  border-radius: 50%;
+  &:hover {
+      border: 2px solid #4f372f;
+  }
+}
+.btn-primary{
+  background-color: #4f372f;
+  color: #ffffff;
+  border-radius: 8px;
+  margin-right: 1rem;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  &:hover {
+    background-color:  #4f372f;
+}
+}
+.accordion-button{
+  &:not(.collapsed){
+      background-color: #ffffff;
+  }
+
+  &:focus{
+      box-shadow: none;
+  
+  }
+  
+}
+.container{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.container input {
+  margin-top: 1rem; 
+  margin-bottom: 1rem
+
+}
+// .container img{
+//   width: 80px; 
+//   height: 80px;
+// }
