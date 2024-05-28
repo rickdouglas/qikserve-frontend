@@ -6,7 +6,7 @@ export function Modal({ item, closeModal }) {
 
   const [total, setTotal] = useState('');
 
-  const addToOrder = () => {
+  const addToOrder = (item) => {
     const product = {
       id: item.id,
       name: item.name,
@@ -26,6 +26,8 @@ export function Modal({ item, closeModal }) {
   
     // Save the updated order in localStorage
     localStorage.setItem('order', orderJson);
+    window.dispatchEvent(new CustomEvent('itemAddedToCart'));
+
   };
 
   return (

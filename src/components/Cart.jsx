@@ -6,10 +6,23 @@ export function Cart() {
   const [order, setOrder] = useState([]);
 
   useEffect(() => {
-    const existingOrderString = localStorage.getItem('order');
-    const existingOrder = existingOrderString ? JSON.parse(existingOrderString) : [];
-    setOrder(existingOrder);
-  }, [order]);
+    const updateCart = () => {
+      const existingOrderString = localStorage.getItem('order');
+      const existingOrder = existingOrderString ? JSON.parse(existingOrderString) : [];
+      setOrder(existingOrder);
+    };
+  
+    // Update cart when component mounts
+    updateCart();
+  
+    // Listen for the custom event and update cart when it's fired
+    const listener = window.addEventListener('itemAddedToCart', updateCart);
+  
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('itemAddedToCart', listener);
+    };
+  }, []);
 
   return (
     <div
