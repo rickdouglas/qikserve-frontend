@@ -8,7 +8,7 @@ export function Modal({ item, closeModal }) {
         <div className="card">
           <div className="row-g-0 d-flex">
             <img
-              src={item.images[0].image}
+              src={item.images && item.images[0].image}
               className="card-img"
               alt="..."
             />
