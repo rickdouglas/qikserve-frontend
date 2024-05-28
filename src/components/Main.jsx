@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { Card } from "./Card";
 import { Modal } from "./Modal";
 import { Cart } from "./Cart";
+import { Spinner } from "./Spinner";
+import { SearchBar } from "./SearchBar";
 
 export function Main() {
   const { menuDetails, loading } = useFetchMenuDetails();
@@ -15,7 +17,6 @@ export function Main() {
   const toggleAccordion = (id) => {
     setOpenAccordion(openAccordion === id ? null : id);
   };
-  
 
   const renderModal = (item) => {
     document.body.style.overflow = 'hidden';
@@ -33,21 +34,12 @@ export function Main() {
 
   return (
     loading ? (
-      <div className="spinner-border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
+      <Spinner />
     ) : (
       <div className="container">
-        <input
-          style={{ width: '100%', margin: '1rem 0', justifyContent: 'center'} }
-          type="text" 
-          className="form-control" 
-          id="formGroupExampleInput" 
-          placeholder="Search Menu items" 
-        />
+        <SearchBar />
         <div className="row g-2 d-flex">
           <div className="col-8" style={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', padding: '0.5rem'}}>
-            
             <div className="row justify-content-start">
               {menuDetails.sections.map((section) => (
                 <div style={{ flex: '0 0 0' }} className="col" key={section.id}>
@@ -107,14 +99,12 @@ export function Main() {
                   );
                 })}
               </div>
-              
             </div>
           </div>
           <div className="col-4">
             <Cart />
           </div>
         </div>
- 
 
         {isModalOpen && selectedItem && (
           <Modal
