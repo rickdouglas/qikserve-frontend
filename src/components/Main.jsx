@@ -41,7 +41,7 @@ export function Main() {
         <div className="row g-2 d-flex">
           <div className="col-8" style={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', padding: '0.5rem'}}>
             <div className="row justify-content-start">
-              {menuDetails.sections.map((section) => (
+              {menuDetails && menuDetails.sections.map((section) => (
                 <div style={{ flex: '0 0 0' }} className="col" key={section.id}>
                   {section.images.map((image) => (
                     <button className="btn" key={image.id}>
@@ -59,7 +59,7 @@ export function Main() {
             </div>
             <div className="row-g-0 d-flex">
               <div className="col-8">
-                {menuDetails.sections.map((section, index) => {
+                {menuDetails && menuDetails.sections.map((section, index) => {
                   const isOpen = openAccordion === section.id;
                   return (
                     <div key={section.id} className="accordion accordion-flush" id="accordionFlushExample">
