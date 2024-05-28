@@ -23,7 +23,14 @@ export function Header() {
                             <a className="nav-link" href="#">Contato</a>
                         </li>
                     </ul>
-                    <img src={restaurantDetails.webSettings.bannerImage} className="img-fluid" alt="Restaurant"></img>
+                    {restaurantDetails && restaurantDetails.webSettings && (
+                        <img
+                            src={restaurantDetails.webSettings.bannerImage}
+                            className="img-fluid"
+                            alt="Restaurant Banner"
+                        />
+                    )}
+
                 </>
             )}
         </>
